@@ -21,9 +21,15 @@ $(function () {
       console.log('A key has been pressed!')
     if(e.which == 13) {
       console.log('You pressed enter!')
+      var dom_path = getFullPath(currentElement);
+      var content = $(currentElement).html();
       console.log(currentElement);
-      console.log(getFullPath(currentElement))
-      chrome.runtime.sendMessage({action: "create_new_section", sectionData:{}})
+      console.log(dom_path);
+      chrome.runtime.sendMessage({action: "create_new_section", sectionData: {
+        url: window.location,
+        dom_path: dom_path,
+        content: content
+      }});
     }
   })
 })
