@@ -18,3 +18,14 @@ setInterval(function() {
   var existingMonitors = getMonitors()
   console.log('Checking for updates')
 }, 20*1000) //should be an option
+
+
+/**
+
+Structure for section objects
+{
+	url
+	dom_path
+	content
+}
+**/
