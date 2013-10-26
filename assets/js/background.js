@@ -22,7 +22,7 @@ function getMonitors() {
 // the callback with its html content
 function loadPage(url, cb) {
   $.ajax({
-    type: 'POST',
+    type: 'GET',
     url: url,
     data: 'page=' + url,
     dataType: 'html',
@@ -33,7 +33,22 @@ function loadPage(url, cb) {
   });
 }
 
-function sendNotification() {
+function sendNotification(url, orig_content, new_content) {
+  $.ajax({
+    type: 'POST',
+    url: 'http://changenotify.herokuapp.com/notify',
+    data: {
+      phone_number: '4179880783',
+      email: 'rzendacott@gmail.com',
+      name: 'John Smith',
+      website: url,
+      original_content: orig_content,
+      new_content: new_content
+    },
+    success: function(data) {
+      console.log('Sent alert successfully!')
+    }
+  });
 }
 
 setInterval(function() {
@@ -47,7 +62,7 @@ setInterval(function() {
       var content = page.find(monitor.dom_path).html(); // find the saved element
       // If the content has changed, send alert
       if (content != monitor.content)  {
-        sendNotification();
+        sendNotification(monitor.url, monitor.content, content);
       }
 
       monitor.content = content; // update content
