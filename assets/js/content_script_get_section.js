@@ -26,7 +26,7 @@ $(function () {
       console.log(currentElement);
       console.log(dom_path);
       chrome.runtime.sendMessage({action: "create_new_section", sectionData: {
-        url: window.location,
+        url: window.location.href,
         dom_path: dom_path,
         content: content
       }});
