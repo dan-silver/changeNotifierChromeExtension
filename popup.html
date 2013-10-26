@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html ng-app="" ng-csp="">
 <head>
-	<link href="style.css" rel="stylesheet">
-	<script src="libraries/angular.js"></script>
-	<script src="popup.js"></script>
+  <link href="style.css" rel="stylesheet">
+  <script src="libraries/angular.js"></script>
+  <script src="popup.js"></script>
 </head>
 <body>
-	<h3>List of monitored sections, by site</h3>
-	<div ng-controller="RefreshCtrl">
+  <div ng-controller="RefreshCtrl">
+    <button ng-click="new_section()">New Monitor</button> 
+    <h3>List of monitored sections, by site</h3>
       <ul>
         <li ng-repeat="section in sections">
           <span>URL: {{section.url}}</span>
