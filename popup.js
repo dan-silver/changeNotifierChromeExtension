@@ -5,7 +5,7 @@ function RefreshCtrl($scope) {
   	window.close()
   }
   $scope.removeSection = function(i) {
-    $scope.sections.splice(i)
+    $scope.sections.splice(i,1)
     localStorage.setItem('sections', JSON.stringify($scope.sections))
   }
 }
