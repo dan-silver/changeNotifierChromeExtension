@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html ng-app="" ng-csp="">
 <head>
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
   <link href="style.css" rel="stylesheet">
   <script src="libraries/angular.js"></script>
   <script src="popup.js"></script>
 </head>
 <body>
-  <div ng-controller="RefreshCtrl">
-    <button ng-click="new_section()">New Monitor</button> 
-    <h3>List of monitored sections, by site</h3>
+  <div ng-controller="RefreshCtrl" class="row">
+  <div class="col-md-12">
+    <button ng-click="new_section()" class="btn btn-primary pull-right">New Monitor</button> 
+    <h3>Currently Monitoring</h3>
       <ul>
         <li ng-repeat="section in sections">
-          <span>URL: {{section.url}}</span>
+          <span>URL: {{section.url}}</span>   <button class="btn btn-danger btn-xs">Remove</button>
         </li>
       </ul>
+    </div>
     </div>
 </body>
 </html>
