@@ -1,26 +1,29 @@
+$(function () {
 console.log('INJECTED!')
 
-var currentElement
+var currentElement, selecting = true
 
-$(function () {
   $('*').hover(
     function(e){
+      if (!selecting) return
     	currentElement = this
-    	$("*").removeClass('updateNotifierSelected')
-        $(this).addClass('updateNotifierSelected')
-        e.preventDefault()
-        e.stopPropagation()
-        return false
+    	removeAllHighlights()
+      $(this).addClass('updateNotifierSelected')
+      e.preventDefault()
+      e.stopPropagation()
+      return false
     },function(e) {
-        e.preventDefault()
-        e.stopPropagation()
-        return false
+      e.preventDefault()
+      e.stopPropagation()
+      return false
     }
   )
   $(document).keypress(function(e) {
       console.log('A key has been pressed!')
     if(e.which == 13) {
       console.log('You pressed enter!')
+      selecting = false
+      removeAllHighlights()
       var dom_path = getFullPath(currentElement);
       var content = $(currentElement).html();
       console.log(currentElement);
@@ -34,7 +37,7 @@ $(function () {
   })
 })
 
-
+function removeAllHighlights() { $("*").removeClass('updateNotifierSelected') }
 
 function getFullPath(el) {
   if (!(el instanceof Element))
