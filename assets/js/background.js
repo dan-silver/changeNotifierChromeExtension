@@ -42,7 +42,7 @@ function loadPage(url, cb) {
 function sendNotification(url, orig_content, new_content) {
   $.ajax({
     type: 'POST',
-    url: 'http://changenotify.herokuapp.com/notify',
+    url: 'http://localhost:3000/notify',
     data: {
       phone_number: localStorage.phoneNumber,
       email: localStorage.email,
