@@ -1,6 +1,16 @@
 $(function () {
 var currentElement, selecting = true
-
+  jQuery('body').append("<div id='drop'></div>")
+  $('#drop').css({
+    position: "fixed",
+    top: "0",
+    width: "100%",
+    height: "100%",
+    "pointer-events": "none",
+    "background-color": "black",
+    opacity: ".7",
+    "z-index": 500
+  })
   $('*').hover(
     function(e){
       if (!selecting) return
@@ -29,6 +39,7 @@ var currentElement, selecting = true
         content: content
       }})
       toastr.success('We\'re now monitoring this section')
+      $('#drop').remove()
       selecting = false
     }
   })
