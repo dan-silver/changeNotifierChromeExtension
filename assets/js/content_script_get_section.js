@@ -1,6 +1,4 @@
 $(function () {
-console.log('INJECTED!')
-
 var currentElement, selecting = true
 
   $('*').hover(
@@ -19,9 +17,7 @@ var currentElement, selecting = true
     }
   )
   $(document).keypress(function(e) {
-      console.log('A key has been pressed!')
     if(e.which == 13) {
-      console.log('You pressed enter!')
       selecting = false
       removeAllHighlights()
       var dom_path = getFullPath(currentElement);
@@ -33,6 +29,7 @@ var currentElement, selecting = true
         dom_path: dom_path,
         content: content
       }});
+      toastr.success('We\'re now monitoring this section')
     }
   })
 })

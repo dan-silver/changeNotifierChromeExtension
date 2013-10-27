@@ -13,7 +13,7 @@
     <h3>Currently Monitoring</h3>
       <ul>
         <li ng-repeat="section in sections">
-          <span>URL: {{section.url}}</span>   <button class="btn btn-danger btn-xs" ng-click="removeSection($index)">Remove</button>
+          <span>{{section.url}}</span>   <button class="btn btn-danger btn-xs" ng-click="removeSection($index)">Remove</button>
         </li>
       </ul>
     </div>
