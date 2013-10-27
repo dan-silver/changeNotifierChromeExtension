@@ -39,7 +39,7 @@ function loadPage(url, cb) {
   });
 }
 
-function sendNotification(url, orig_content, new_content) {
+function sendNotification(url, orig_content, new_content, monitor_name) {
   $.ajax({
     type: 'POST',
     url: 'http://localhost:3000/notify',
@@ -49,7 +49,8 @@ function sendNotification(url, orig_content, new_content) {
       name: localStorage.name,
       website: url,
       original_content: orig_content,
-      new_content: new_content
+      new_content: new_content,
+      monitor_name: (monitor_name || url)
     },
     success: function(data) {
       console.log(data)
@@ -67,9 +68,10 @@ setInterval(function() {
     loadPage(monitor.url, function(page) {
       page = $(page); // convert the page to a parsed html doc
       var content = page.find(monitor.dom_path).html(); // find the saved element
+
       // If the content has changed, send alert
       if (content != monitor.content)  {
-        sendNotification(monitor.url, monitor.content, content);
+        sendNotification(monitor.url, monitor.content, content, monitor.name);
       }
 
       monitor.content = content; // update content
