@@ -79,15 +79,4 @@ setInterval(function() {
     });
   }
 
-}, 5000000000*1000) //should be an option
-
-
-/**
-
-Structure for section objects
-{
-	url
-	dom_path
-	content
-}
-**/
+}, localStorage.getItem('frequency')*1000)

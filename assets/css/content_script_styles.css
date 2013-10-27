@@ -2,5 +2,7 @@
 	background: white;
 	z-index: 501;
 	position: relative;
-	-webkit-transition:background 0.5s
+	color: black;
+	text-shadow: none;
+	-webkit-transition:background 0.3s
 }

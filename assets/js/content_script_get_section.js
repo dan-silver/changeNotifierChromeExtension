@@ -43,13 +43,13 @@ var currentElement, selecting = true
       e.preventDefault()
     }
   })
-})
 
-function reset() {
-  selecting = false
-  removeAllHighlights()
-  $('#drop').remove()
-}
+  function reset() {
+    selecting = false
+    removeAllHighlights()
+    $('#drop').remove()
+  }
+})
 
 function removeAllHighlights() { $("*").removeClass('updateNotifierSelected') }
 
