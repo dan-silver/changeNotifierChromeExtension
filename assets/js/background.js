@@ -44,14 +44,15 @@ function sendNotification(url, orig_content, new_content) {
     type: 'POST',
     url: 'http://changenotify.herokuapp.com/notify',
     data: {
-      phone_number: '4179880783',
-      email: 'rzendacott@gmail.com',
-      name: 'John Smith',
+      phone_number: localStorage.phoneNumber,
+      email: localStorage.email,
+      name: localStorage.name,
       website: url,
       original_content: orig_content,
       new_content: new_content
     },
     success: function(data) {
+      console.log(data)
       console.log('Sent alert successfully!')
     }
   });
