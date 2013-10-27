@@ -6,3 +6,6 @@
 	text-shadow: none;
 	-webkit-transition:background 0.3s
 }
+.toast.toast-success {
+    opacity: 1 !important;
+}
