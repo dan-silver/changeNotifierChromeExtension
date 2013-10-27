@@ -28,9 +28,10 @@ function simplifyResponseHandler(data) {
             }
         }
         $(document).ready(function() {
-            $("#simplify-payment-form").on("submit", function() {
+            $("#simplify-payment-form").on("submit", function(e) {
                 // Disable the submit button
                 $("#process-payment-btn").attr("disabled", "disabled");
+                e.preventDefault()
                 // Generate a card token & handle the response
                 SimplifyCommerce.generateToken({
                     key: "sbpb_Yzg0ZTViMmItNTU3Mi00ZDc5LTgyZDctOTVlZDNmNTk0MDAx",
