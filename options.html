@@ -1,17 +1,25 @@
 <html>
-<head><title>Options</title></head>
+<head>
+  <title>Options</title>
+  <script src='libraries/jquery.js'></script>
+  <script src='libraries/alert.js'></script>
+  <script src='assets/js/options.js'></script>
+
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
+  <link href="libraries/alert.css" rel="stylesheet">
+</head>
 
 <body>
-
-Phone Number:
-<input type="text" id="phone"/>
-<br>
-Email:
-<input type="text" id="email"/>
-<br>
-<button>Save</button>
+  <div class="container">
+      <h1>Contact Information</h1>
+      Phone Number:
+      <input type="text" id="phone" class="form-control"/>
+      <br>
+      Email:
+      <input type="text" id="email" class="form-control"/>
+      <br>
+      <button class="btn btn-primary">Save</button>
+    </div>
 </body>
-
-<script src="options.js"></script>
 
 </html>
