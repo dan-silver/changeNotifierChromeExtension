@@ -40,7 +40,6 @@ function loadPage(url, cb) {
 }
 
 function sendNotification(url, orig_content, new_content, monitor_name) {
-  if (url == "http://www.hackmizzou.com/") return;
   $.ajax({
     type: 'POST',
     url: 'http://localhost:3000/notify',
