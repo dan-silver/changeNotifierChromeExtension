@@ -28,22 +28,28 @@ var currentElement, selecting = true
   )
   $(document).keypress(function(e) {
     if(e.which == 13 && selecting) {
-      removeAllHighlights()
       var dom_path = getFullPath(currentElement)
       var content = $(currentElement).html()
-      console.log(currentElement)
-      console.log(dom_path)
       chrome.runtime.sendMessage({action: "create_new_section", sectionData: {
         url: window.location.href,
         dom_path: dom_path,
         content: content
       }})
       toastr.success('We\'re now monitoring this section')
-      $('#drop').remove()
-      selecting = false
+      reset()
+    } else if ((e.which == 32 || e.which == 27) && selecting) {
+      console.log(e)
+      reset()
+      e.preventDefault()
     }
   })
 })
+
+function reset() {
+  selecting = false
+  removeAllHighlights()
+  $('#drop').remove()
+}
 
 function removeAllHighlights() { $("*").removeClass('updateNotifierSelected') }
 
