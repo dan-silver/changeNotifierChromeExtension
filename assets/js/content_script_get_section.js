@@ -30,10 +30,12 @@ var currentElement, selecting = true
     if(e.which == 13 && selecting) {
       var dom_path = getFullPath(currentElement)
       var content = $(currentElement).html()
+      var name = prompt("Name this section:");
       chrome.runtime.sendMessage({action: "create_new_section", sectionData: {
         url: window.location.href,
         dom_path: dom_path,
-        content: content
+        content: content,
+        name: name
       }})
       toastr.success('We\'re now monitoring this section')
       reset()
