@@ -79,4 +79,5 @@ setInterval(function() {
     });
   }
 
-}, localStorage.getItem('frequency')*1000)
+//}, localStorage.getItem('frequency')*60*1000)
+}, 5*1000)
