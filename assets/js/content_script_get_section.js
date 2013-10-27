@@ -17,8 +17,7 @@ var currentElement, selecting = true
     }
   )
   $(document).keypress(function(e) {
-    if(e.which == 13) {
-      selecting = false
+    if(e.which == 13 && selecting) {
       removeAllHighlights()
       var dom_path = getFullPath(currentElement);
       var content = $(currentElement).html();
@@ -30,6 +29,7 @@ var currentElement, selecting = true
         content: content
       }});
       toastr.success('We\'re now monitoring this section')
+      selecting = false
     }
   })
 })
